@@ -5,19 +5,22 @@ Description: WordPress Theme for creating high-performance Direct Response pages
 Author: ProGo Themes
 Author URI: http://www.progo.com
 Template: direct
-Version: 1.0
+Version: 2.0
 */
 
 @import '../direct/style.css';
+
 body { background: #EC7D1B url(images/bg.jpg) repeat-x 50% 0; }
-#hdr { padding-top: 8px; height: 106px; }
+#hdr { height: 114px; background: #fff; }
+#slogan { font-weight: 800; }
+#hdr .tshade { background: none; }
+#toparr { background: url(images/form.jpg) no-repeat 100% 0; text-align: left; text-indent: -999em; }
 #container { background: none; }
-#topimg { border-top: 1px solid #e7e7e7; margin-left: 1px; width: 699px; height: 420px; }
-#arrow { width: 722px; height: 95px; padding: 0; background-image: url(images/arrow.png); text-indent: -999em; top: -10px; left: -10px; }
-#toparr { background-image: url(images/toparr.png); width: 207px; height: 82px; padding: 0; text-indent: -999em; margin: 14px 0 0 27px }
-#primary { margin-top: -114px; }
-.pform { width: 260px; background: url(images/form.jpg) no-repeat 0 0; border-left: none; border-bottom: none; float: right; margin-right: -2px }
-.pform h3#rh { display: block; width: 198px; height: 65px; margin: 44px 0 -16px 30px; text-indent: -999em; background: url(images/rh.jpg) no-repeat 0 0; }
+#topimg { border-top: 1px solid #e7e7e7; margin-left: -10px; width: 699px; height: 420px; }
+#arrow span { font-weight: 400; }
+#arrow { width: 722px; padding: 34px 0 0; text-align: center; background: url(images/arrow.png) no-repeat 0 100%; margin-left: -20px; }
+.pform { width: 260px; padding: 0 0 12px; background: url(images/form.jpg) no-repeat 0 -114px; border-left: none; border-bottom: none; float: right; margin-right: -10px }
+.pform h3#rh { display: block; width: 198px; height: 65px; margin: 26px 0 -10px 30px; text-indent: -999em; background: url(images/rh.jpg) no-repeat 0 0; }
 .pform label.jq { position: relative; z-index:2; margin-bottom: -18px; top: 3px; left: 6px; font-weight: normal; }
 .pform fieldset { width: 237px; /*260-23*/ padding-left: 2px; }
 .pform input.text { margin-right: 27px; width: 200px; -moz-border-radius: 4px; border-radius: 4px; border: none; padding: 4px 5px 5px; }
@@ -25,13 +28,12 @@ body { background: #EC7D1B url(images/bg.jpg) repeat-x 50% 0; }
 .pform #cred { margin: 16px 0 5px; width: 260px; }
 .pform input.sbtn.buynow.img { width: auto; height: auto; margin-left: 24px }
 
-#secondary { margin-top: 270px; }
-img.fw { margin: 9px 0 0 17px; }
+#secondary { margin-top: 306px; }
+.block { float: right; margin-right: 10px; width: 87%; }
 
-#content h2 { font-weight: 400; font-size: 34px; line-height: 38px; margin: 37px 0 5px }
-#content h3 { font-weight: normal; margin-bottom: 25px; line-height:20px }
+img.fw { margin: 19px 0 0 7px; }
+#main h2 { font-weight: 400; font-size: 34px; line-height: 38px; margin: 37px 0 5px }
+#main h3 { font-weight: normal; margin-bottom: 25px; line-height:20px }
 
 #bodycontent { width: 625px; }
-#content img.alignleft { margin-right: 17px; }
-
-#ftr { background-image: url(images/shade.png); }
+#main img.alignleft { margin-right: 17px; }
