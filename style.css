@@ -12,7 +12,7 @@ Version: 2.0
 
 body { background: #EC7D1B url(images/bg.jpg) repeat-x 50% 0; }
 #hdr { height: 114px; background: #fff; }
-#slogan { font-weight: 800; }
+#slogan { font-weight: 800; margin: 54px 0 0 25px }
 #hdr .tshade { background: none; }
 #toparr { background: url(images/form.jpg) no-repeat 100% 0; text-align: left; text-indent: -999em; }
 #container { background: none; }
