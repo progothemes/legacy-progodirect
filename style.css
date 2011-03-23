@@ -11,27 +11,35 @@ Version: 2.0
 @import '../direct/style.css';
 
 body { background: #EC7D1B url(images/bg.jpg) repeat-x 50% 0; }
+a { color: #DE7916; }
 #hdr { height: 114px; background: #fff; }
 #slogan { font-weight: 800; margin: 54px 0 0 25px }
 #hdr .tshade { background: none; }
 #toparr { background: url(images/form.jpg) no-repeat 100% 0; text-align: left; text-indent: -999em; }
-#container { background: none; }
+#container { background: #e3e3e3 url(images/page.png) repeat-y 0 0; }
+#container.direct { background-color: #fff; }
 #topimg { border-top: 1px solid #e7e7e7; margin-left: -10px; width: 699px; height: 420px; }
 #arrow span { font-weight: 400; }
 #arrow { width: 722px; padding: 34px 0 0; text-align: center; background: url(images/arrow.png) no-repeat 0 100%; margin-left: -20px; }
 .pform { width: 260px; padding: 0 0 12px; background: url(images/form.jpg) no-repeat 0 -114px; border-left: none; border-bottom: none; float: right; margin-right: -10px }
+.pform, .pform fieldset, .pform h3 { color: #fff; }
 .pform h3#rh { display: block; width: 198px; height: 65px; margin: 23px 0 -4px 30px; text-indent: -999em; background: url(images/rh.jpg) no-repeat 0 0; }
-.pform table.wpsc_checkout_table { height: 497px; }
-.pform table.wpsc_checkout_table label { display:none !important; }
+.pform.direct table.wpsc_checkout_table { height: 497px; }
+.pform.direct table.wpsc_checkout_table label { display:none !important; }
 .pform fieldset { width: 237px; /*260-23*/ padding-left: 2px; }
 .pform fieldset select { float: right; position: relative; left: -22px; margin-right: 5px; }
 .pform fieldset select.current_country { width: 151px; }
 .pform fieldset select.current_region { width: 54px; }
 .pform fieldset input.text { margin-right: 27px; width: 200px; -moz-border-radius: 4px; border-radius: 4px; border: none; padding: 3px 5px 4px; }
+.pform fieldset input.text.cvv { width: 50px; }
+.pform fieldset input.text.need { border: 2px solid #d9c406; background-color: #ff9; margin: -2px 27px 8px -2px }
 /*.pform .zip input.text { width: 123px; margin-left: 22px }*/
 .pform #cred { margin: 16px 0 5px; width: 260px; }
 .pform input.sbtn.buynow.img { width: auto; height: auto; margin-left: 24px }
 .pform table.wpsc_checkout_table td.cred { height: 50px; }
+body.wpsc-shopping-cart .pform fieldset#payment label { width: 100%; }
+body.wpsc-shopping-cart .pform tr.hdr, body.wpsc-shopping-cart .pform #billing label { display: none !important; }
+.pform fieldset#payment select { left: 0; float: left; }
 
 #secondary { float: right; width: 263px; margin: 297px 10px 0 0; padding-top: 9px; background: url(images/blockt.gif) no-repeat 0 0; }
 .block { float: left; margin: 0; width: 100%; border: none; background: url(images/blocks.gif) repeat-y 0 0; padding-bottom: 10px }
@@ -40,13 +48,17 @@ body { background: #EC7D1B url(images/bg.jpg) repeat-x 50% 0; }
 .block.test .inside { font-style:italic; color: #333; }
 .block.test .inside .lq { top: 5px; }
 .block.test .inside br { display: none; }
-.block.test .inside .by { font-style: normal; font-size: 11px; display: block; margin-top: 20px }
+  .block.test .inside .by { font-style: normal; font-size: 11px; display: block; margin-top: 20px }
 .block.share { background: url(images/blockb.png) no-repeat 0 100%; }
 .block.share .inside { background: none; }
 
 img.fw { margin: 19px 0 0 7px; }
 #main h2 { font-weight: 400; font-size: 34px; line-height: 38px; margin: 37px 0 5px }
 #main h3 { font-weight: normal; margin-bottom: 25px; line-height:20px }
+#main h1.page-title { font-size: 40px; font-weight: 800 }
+#main h1.page-title em { font-style: normal; font-weight: 400 }
+
+body.wpsc-shopping-cart .container_12 .entry.grid_8 { width: 647px; }
 
 #bodycontent { width: 625px; }
 #main img.alignleft { margin-right: 17px; }
