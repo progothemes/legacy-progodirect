@@ -1,5 +1,4 @@
 jQuery(function($) {
-	//alert('oyea');
 	/*
 	// the new wp e commerce form stuff automatically does this
 	$('#side form.pform label').each(function() {
@@ -22,6 +21,7 @@ jQuery(function($) {
 	*/
 	Cufon.replace('#main h2, #slogan', { fontFamily: 'TitilliumText' });
 	Cufon.replace('#arrow span', { fontFamily: 'TitilliumText', textShadow: '-1px -1px rgba(0, 0, 0, 0.65)' });
+	Cufon.replace('#secondary h3', { fontFamily: 'TitilliumText', fontWeight: '800' });
 	Cufon.now();
 
 });

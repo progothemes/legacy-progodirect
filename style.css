@@ -33,8 +33,16 @@ body { background: #EC7D1B url(images/bg.jpg) repeat-x 50% 0; }
 .pform input.sbtn.buynow.img { width: auto; height: auto; margin-left: 24px }
 .pform table.wpsc_checkout_table td.cred { height: 50px; }
 
-#secondary { margin-top: 306px; }
-.block { float: right; margin-right: 10px; width: 87%; }
+#secondary { float: right; width: 263px; margin: 297px 10px 0 0; padding-top: 9px; background: url(images/blockt.gif) no-repeat 0 0; }
+.block { float: left; margin: 0; width: 100%; border: none; background: url(images/blocks.gif) repeat-y 0 0; padding-bottom: 10px }
+.block h3.title { font-size: 18px; text-transform: uppercase; color: #000; background: none }
+.block .inside { padding-top: 5px; background: url(images/blocke.png) no-repeat 50% 100%; }
+.block.test .inside { font-style:italic; color: #333; }
+.block.test .inside .lq { top: 5px; }
+.block.test .inside br { display: none; }
+.block.test .inside .by { font-style: normal; font-size: 11px; display: block; margin-top: 20px }
+.block.share { background: url(images/blockb.png) no-repeat 0 100%; }
+.block.share .inside { background: none; }
 
 img.fw { margin: 19px 0 0 7px; }
 #main h2 { font-weight: 400; font-size: 34px; line-height: 38px; margin: 37px 0 5px }
