@@ -34,6 +34,9 @@ function progodirect_contenttop() {
 	if ( class_exists('MultiPostThumbnails') && MultiPostThumbnails::has_post_thumbnail('page', 'fw-image', $post->ID) ) {
 		MultiPostThumbnails::the_post_thumbnail('page', 'fw-image', $post->ID, 'fullw', array( 'class' => 'fw' ) );
 	}
+	
+	echo nggShow_JS_Slideshow(2, 408, 255, 'ngg-slideshow lapcolors');
+	echo '<div id="directprice"></div>';
 }
 
 function progo_direct_charcutoff($field) {

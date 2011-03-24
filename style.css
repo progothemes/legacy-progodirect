@@ -19,11 +19,13 @@ a { color: #DE7916; }
 #container { background: #e3e3e3 url(images/page.png) repeat-y 0 0; }
 #container.direct { background-color: #fff; }
 #topimg { border-top: 1px solid #e7e7e7; margin-left: -10px; width: 699px; height: 420px; }
-#arrow span { font-weight: 400; }
-#arrow { width: 722px; padding: 34px 0 0; text-align: center; background: url(images/arrow.png) no-repeat 0 100%; margin-left: -20px; }
+#arrow span { font-weight: 400; letter-spacing:0.03em }
+.ngg-slideshow.lapcolors { position: absolute; top: 108px; left: 145px; z-index: 2; }
+#directprice { display: block; width: 183px; height: 177px; position: absolute; top: 138px; left: 21px; z-index: 3; background: url(images/directprice.png) no-repeat 0 0; }
+#arrow { width: 722px; padding: 33px 0 1px; text-align: center; background: url(images/arrow.png) no-repeat 0 100%; margin-left: -20px; }
 .pform { width: 260px; padding: 0 0 12px; background: url(images/form.jpg) no-repeat 0 -114px; border-left: none; border-bottom: none; float: right; margin-right: -10px }
 .pform, .pform fieldset, .pform h3 { color: #fff; }
-.pform h3#rh { display: block; width: 198px; height: 65px; margin: 23px 0 -4px 30px; text-indent: -999em; background: url(images/rh.jpg) no-repeat 0 0; }
+.pform h3#rh { display: block; width: 206px; height: 65px; margin: 22px 0 -3px 24px; text-indent: -999em; background: url(images/rh.jpg) no-repeat 0 0; }
 .pform.direct table.wpsc_checkout_table { height: 497px; }
 .pform.direct table.wpsc_checkout_table label { display:none !important; }
 .pform fieldset { width: 237px; /*260-23*/ padding-left: 2px; }
