@@ -42,6 +42,8 @@ a { color: #DE7916; }
 body.wpsc-shopping-cart .pform fieldset#payment label { width: 100%; }
 body.wpsc-shopping-cart .pform tr.hdr, body.wpsc-shopping-cart .pform #billing label { display: none !important; }
 .pform fieldset#payment select { left: 0; float: left; }
+.pform p.validation-error { color: #FFEC6C; font: bold 11px/16px Arial, Helvetica, sans-serif; margin: 25px 0 0 25px; background: none; padding: 0}
+body.wpsc-transaction-details .container_12 .grid_8.entry { width: 868px; }
 
 #secondary { float: right; width: 263px; margin: 297px 10px 0 0; padding-top: 9px; background: url(images/blockt.gif) no-repeat 0 0; }
 .block { float: left; margin: 0; width: 100%; border: none; background: url(images/blocks.gif) repeat-y 0 0; padding-bottom: 10px }
