@@ -10,6 +10,7 @@ function progodirect_setup() {
 	add_action( 'progo_pre_gateways', 'progodirect_gatewaycleanup' );
 	add_filter( 'progo_display_easysecure', 'progodirect_easyoverride', 10, 3);
 	add_filter( 'progo_checkout_btn', 'progodirect_checkoutbtn' );
+	add_filter( 'wp_mail', 'progodirect_mail' );
 }
 
 function progodirect_init() {
@@ -136,4 +137,78 @@ function progodirect_gatewaycleanup() {
 	</tr>";
 	global $gateway_checkout_form_fields;
 	$gateway_checkout_form_fields[wpsc_merchant_paypal_pro] = $oot;
+}
+
+// this is where keys come from
+function progodirect_mail( $msg ) {
+	if($msg[subject] == 'Purchase Receipt') {
+		$dlstart = strpos($msg['message'],'?downloadid=') + 12;
+		$dlend = strpos($msg['message'],'Total:', $dlstart);
+		$dlid = trim(substr($msg['message'],$dlstart,$dlend-$dlstart));
+		//$dlend = 
+		
+		global $wpdb;
+		
+		$downloadid = preg_replace( "/[^a-z0-9]+/i", '', strtolower( $dlid ) );
+		$download_data = $wpdb->get_row( "SELECT * FROM `" . WPSC_TABLE_DOWNLOAD_STATUS . "` WHERE `uniqueid` = '" . $downloadid . "' AND `downloads` > '0' AND `active`='1' LIMIT 1", ARRAY_A );
+
+		if ( ($download_data == null) && is_numeric( $downloadid ) ) {
+			$download_data = $wpdb->get_row( "SELECT * FROM `" . WPSC_TABLE_DOWNLOAD_STATUS . "` WHERE `id` = '" . $downloadid . "' AND `downloads` > '0' AND `active`='1' AND `uniqueid` IS NULL LIMIT 1", ARRAY_A );
+		}
+		
+		$file_id = $download_data['fileid'];
+		$file_data = wpsc_get_downloadable_files($download_data['product_id']);		
+		
+		$themefile = $file_data[0]->post_title;
+		$theme = substr($themefile,0,strlen($themefile)-4);
+		
+		$currtime = date('Y-m-d H:i:s');
+		$new_key = md5(crypt($msg['to'] ." : $currtime : $theme"));
+		
+		$db   = mysql_connect('localhost', 'progokeys', 'NFUh02y67U1') or die('Could not connect: ' . mysql_error());
+		mysql_select_db('progokeys') or die('Could not select database');
+		$server_ip = $_SERVER['SERVER_ADDR'];
+		$url = 'newkey';
+		$user_agent = $dlid;
+		
+		$found = 0;
+		$query = "SELECT * FROM progo_keys WHERE user_agent = '$user_agent'";
+		$result = mysql_query($query);		
+		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			$found++;
+			$new_key = $row[api_key];
+		}
+		if( $found == 0 ) {
+			//new key!
+			$sql  = "INSERT INTO progo_keys (";
+			$sql .= "ID,";
+			$sql .= "url,";
+			$sql .= "server_ip,";
+			$sql .= "api_key,";
+			$sql .= "theme,";
+			$sql .= "user_agent,";
+			$sql .= "last_checked,";
+			$sql .= "auth_code";
+			$sql .= ") VALUES (";
+			$sql .= "NULL,";
+			$sql .= "'$url',";
+			$sql .= "'$server_ip',";
+			$sql .= "'$new_key',";
+			$sql .= "'$themeslug',";
+			$sql .= "'$user_agent',";
+			$sql .= "'$currtime',";
+			$sql .= "0";
+			$sql .= ")";
+			
+			mysql_query($sql) || wp_die("Invalid query: $sql<br>\n" . mysql_error());
+		}
+		mysql_close($db);
+		
+		$nice_key = implode( '-', str_split( strtoupper( $new_key ), 4) );
+		$msg['message'] = nl2br(substr($msg['message'],0,$dlend). "API KEY: $nice_key\n\n" .substr($msg['message'],$dlend));
+		
+		//wp_die('<pre>'.print_r($msg,true).'</pre>');
+		
+	}
+	return $msg;
 }
