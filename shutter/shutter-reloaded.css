@@ -1,38 +1,12 @@
 /* Shutter */
-#shDisplay div#shTitle {
-	font: normal 12px/17px 'Lucida Grande', Verdana, sans-serif; /* caption font */
-	color: #ffffff; /* caption colour */
-	text-align: center;
-	margin: 0 auto;
+#shDisplay #shNext a, #shDisplay #shPrev a {
+	display: block; width: 68px; height: 100%; position: absolute; top: 0; right: 0; background: url(../images/arrowd.png) no-repeat -31px 50%;
 }
 
-#shDisplay div#shCount {
-	color: #999999;
-	font: normal 10px/12px 'Lucida Grande', Verdana, sans-serif;
+#shDisplay #shPrev a {
+	width: 56px; right: auto; left:0; background-position: 25px 50%;
 }
-
-#shDisplay div#shTitle a {
-	text-decoration: none;
-	font: bold 16pt 'Courier New', Courier, fixed;
-	letter-spacing: -2px;
-	margin: 0 10px;
-	width: 26px;
-	color: #999999;
-}
-
-#shDisplay div#shTitle a:hover {
-	color: #ffffff;
-	border: none;
-}
-
-#shDisplay div#shNext{
-	float:right;
-}
-
-#shDisplay div#shPrev {
-	float:left;
-}
-
+a#shX { display: block; width: 31px; text-align: center; padding: 27px 20px 12px 0; text-decoration: none; color: #333; font-weight: bold; font-size: 16px; position: absolute; top: 0; right: 0; }
 body {
 	height: 100%;
 }
@@ -61,26 +35,28 @@ div#shDisplay {
 	display: block;
 	background-color: transparent;
 	z-index: 1002;
+	width: 702px;
+	left: 50%;
+	margin-left: -351px;
 }
 
 div#shDisplay img#shTopImg {
 	margin: 0 auto;
-	border: 1px solid #555;
+	border: none;
 	background: transparent;
 	display: block;
-	max-width: none;
-	max-height: none;
+	max-width: 644px;
+	max-height: 436px;
 	float: none;
-	padding:2px;
-	cursor: pointer;
+	padding:0;
 }
 
 div#shDisplay div#shWrap {
-	visibility: hidden;
+	visibility: hidden; display: block; width: 644px; height: 436px; padding: 40px 35px 23px 23px; position: relative; background: url(../images/pop.png) no-repeat 0 0; margin: 0 auto;
 }
 
 div#shWaitBar {
-	font: bold 32px 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+	font: bold 32px Arial;
 	height: 36px;
 	width: 100%;
 	left: 0;

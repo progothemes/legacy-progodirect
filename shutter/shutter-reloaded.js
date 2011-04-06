@@ -94,6 +94,8 @@ shutterReloaded = {
 		if ( ! (S = t.I('shShutter')) ) {
 			S = document.createElement('div');
 			S.setAttribute('id','shShutter');
+			S.setAttribute('title', t.msgClose);
+			S.setAttribute('onclick','shutterReloaded.hideShutter();');
 			document.getElementsByTagName('body')[0].appendChild(S);
 			t.hideTags();
 		}
@@ -102,6 +104,10 @@ shutterReloaded = {
 			D = document.createElement('div');
 			D.setAttribute('id','shDisplay');
 			D.style.top = t.Top + 'px';
+			/*
+			D.setAttribute('title', t.msgClose);
+			D.setAttribute('onclick','shutterReloaded.hideShutter();');
+			*/
 			document.getElementsByTagName('body')[0].appendChild(D);
 		}
 
@@ -110,7 +116,7 @@ shutterReloaded = {
 		var dv = t.textBtns ? ' | ' : '';
 		if ( shutterLinks[ln].num > 1 ) {
 			prev = shutterSets[shutterLinks[ln].set][shutterLinks[ln].num - 2];
-			prevlink = '<a href="#" onclick="shutterReloaded.make('+prev+');return false">&lt;&lt;</a>'+dv;
+			prevlink = '<a href="#" onclick="shutterReloaded.make('+prev+');return false"></a>'+dv;
 			previmg = new Image();
 			previmg.src = shutterLinks[prev].link;
 		} else {
@@ -119,7 +125,7 @@ shutterReloaded = {
 
 		if ( shutterLinks[ln].num != -1 && shutterLinks[ln].num < (shutterSets[shutterLinks[ln].set].length) ) {
 			next = shutterSets[shutterLinks[ln].set][shutterLinks[ln].num];
-			nextlink = '<a href="#" onclick="shutterReloaded.make('+next+');return false">&gt;&gt;</a>'+dv;
+			nextlink = '<a href="#" onclick="shutterReloaded.make('+next+');return false"></a>'+dv;
 			nextimg = new Image();
 			nextimg.src = shutterLinks[next].link;
 		} else {
@@ -128,9 +134,9 @@ shutterReloaded = {
 
 		imgNum = ( (shutterLinks[ln].num > 0) && t.imageCount ) ? '<div id="shCount">&nbsp;(&nbsp;' + shutterLinks[ln].num + '&nbsp;/&nbsp;' + shutterSets[shutterLinks[ln].set].length + '&nbsp;)&nbsp;</div>' : '';
 
-		NavBar = '<div id="shTitle"><div id="shPrev">' + prevlink + '</div><div id="shNext">' + nextlink + '</div><div id="shName">' + shutterLinks[ln].title + '</div>' + imgNum + '</div>';
+		NavBar = '<div id="shTitle"><div id="shPrev">' + prevlink + '</div><div id="shNext">' + nextlink + '</div><div id="shName">' + shutterLinks[ln].title + '</div>' + imgNum + '<a href="#close" onclick="shutterReloaded.hideShutter();return false;" id="shX" title="'+t.msgClose+'">X</a></div>';
 
-		D.innerHTML = '<div id="shWrap"><img src="" id="shTopImg" title="' + t.msgClose + '" onload="shutterReloaded.showImg();" onclick="shutterReloaded.hideShutter();" />' + NavBar +'</div>';
+		D.innerHTML = '<div id="shWrap"><img src="" id="shTopImg" onload="shutterReloaded.showImg();" />' + NavBar +'</div>';
 		
 		//Google Chrome 4.0.249.78 bug for onload attribute
 		document.getElementById('shTopImg').src = shutterLinks[ln].link;
