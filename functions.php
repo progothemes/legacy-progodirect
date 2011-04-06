@@ -6,6 +6,7 @@ function progodirect_setup() {
 	
 	add_action( 'init', 'progodirect_init' );
 	add_action( 'progo_frontend_scripts', 'progodirect_scripts', 20 );
+	add_action( 'progo_frontend_styles', 'progodirect_style', 20 );
 	add_action( 'progo_direct_after_arrow', 'progodirect_contenttop', 20 );
 	add_action( 'progo_pre_gateways', 'progodirect_gatewaycleanup' );
 	add_filter( 'progo_display_easysecure', 'progodirect_easyoverride', 10, 3);
@@ -27,6 +28,13 @@ function progodirect_scripts() {
 	wp_enqueue_script( 'cufon', dirname(get_stylesheet_uri()) .'/cufon-yui.js', array('jquery'), '1.09i', true );
 	wp_enqueue_script( 'cufon-Titillium', dirname(get_stylesheet_uri()) .'/TitilliumText_400-TitilliumText_800.font.js', array('cufon'), '1.09i', true );
 	wp_enqueue_script( 'progodirect', dirname(get_stylesheet_uri()) .'/progo-frontend.js', array('jquery'), '1.0', true );
+	wp_deregister_script( 'shutter' );
+	wp_register_script( 'shutter', dirname(get_stylesheet_uri()) .'/shutter/shutter-reloaded.js', false ,'1.3.0');
+}
+
+function progodirect_style() {
+	wp_deregister_style( 'shutter' );
+	wp_register_style( 'shutter', dirname(get_stylesheet_uri()) .'/shutter/shutter-reloaded.css', false, '1.3.0', 'screen');
 }
 
 function progodirect_contenttop() {
