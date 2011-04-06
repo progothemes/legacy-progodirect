@@ -103,7 +103,7 @@ function progodirect_easyoverride($content, $args, $instance) {
 	$options = get_option('progo_options');
 	$content = '<img src="'. get_bloginfo('url') .'/wp-content/themes/progodirect/images/weaccept.jpg" alt="We Accept..." />'. $after_widget;
 	$content .= $before_widget . $before_title .'Talk with a Pro'. $after_title;
-	$content .= '<a href="#contact">Contact ProGo Themes</a>';
+	$content .= '<a href="#contact" onclick="jQuery(\'#ngg-image-27 a\').click(); return false;">Contact ProGo Themes</a>';
 	return $content;
 }
 

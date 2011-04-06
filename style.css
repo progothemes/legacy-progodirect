@@ -32,7 +32,7 @@ a { color: #DE7916; }
 .pform fieldset select { float: right; position: relative; left: -22px; margin-right: 5px; }
 .pform fieldset select.current_country { width: 151px; }
 .pform fieldset select.current_region { width: 54px; }
-.pform fieldset input.text { margin-right: 27px; width: 200px; -moz-border-radius: 4px; border-radius: 4px; border: none; padding: 3px 5px 4px; }
+.pform fieldset input.text, input.text { margin-right: 27px; width: 200px; -moz-border-radius: 4px; border-radius: 4px; border: none; padding: 3px 5px 4px; }
 .pform fieldset input.text.cvv { width: 50px; }
 .pform fieldset input.text.need { border: 2px solid #d9c406; background-color: #ff9; margin: -2px 27px 8px -2px }
 /*.pform .zip input.text { width: 123px; margin-left: 22px }*/
@@ -52,7 +52,7 @@ body.wpsc-transaction-details .container_12 .grid_8.entry { width: 868px; }
 .block.test .inside { font-style:italic; color: #333; }
 .block.test .inside .lq { top: 5px; }
 .block.test .inside br { display: none; }
-  .block.test .inside .by { font-style: normal; font-size: 11px; display: block; margin-top: 20px }
+.block.test .inside .by { font-style: normal; font-size: 11px; display: block; margin-top: 20px }
 .block.share { background: url(images/blockb.png) no-repeat 0 100%; }
 .block.share .inside { background: none; }
 
@@ -66,3 +66,10 @@ body.wpsc-shopping-cart .container_12 .entry.grid_8 { width: 647px; }
 
 #bodycontent { width: 625px; }
 #main img.alignleft { margin-right: 17px; }
+
+body.popup { color: #333; margin: 0; padding: 0; background: #d3d3d3 url(images/popbg.png) repeat-x 0 0;  }
+#pop { display: block; float: left; width: 546px; padding: 0 49px; font-size: 16px; line-height: 24px }
+#pop input.text { margin-right: 0; width: 251px; }
+#pop form { font-size: 13px; }
+#pop h2 { margin: 12px 0 0; font-size: 34px; line-height: 38px }
+#pop textarea { width: auto; -moz-border-radius: 4px; border-radius: 4px; border: none; padding: 3px 5px 4px; }

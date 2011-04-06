@@ -66,9 +66,6 @@ shutterReloaded = {
 	},
 
 	make : function(ln,fs) {
-		if(ln==23) {
-			//alert('ahha!');
-		}
 		var t = this, prev, next, prevlink = '', nextlink = '', previmg, nextimg, D, S, W, fsarg = -1, imgNum, NavBar;
 
 		if ( ! t.Top ) {
@@ -104,10 +101,6 @@ shutterReloaded = {
 			D = document.createElement('div');
 			D.setAttribute('id','shDisplay');
 			D.style.top = t.Top + 'px';
-			/*
-			D.setAttribute('title', t.msgClose);
-			D.setAttribute('onclick','shutterReloaded.hideShutter();');
-			*/
 			document.getElementsByTagName('body')[0].appendChild(D);
 		}
 
@@ -135,9 +128,13 @@ shutterReloaded = {
 		imgNum = ( (shutterLinks[ln].num > 0) && t.imageCount ) ? '<div id="shCount">&nbsp;(&nbsp;' + shutterLinks[ln].num + '&nbsp;/&nbsp;' + shutterSets[shutterLinks[ln].set].length + '&nbsp;)&nbsp;</div>' : '';
 
 		NavBar = '<div id="shTitle"><div id="shPrev">' + prevlink + '</div><div id="shNext">' + nextlink + '</div><div id="shName">' + shutterLinks[ln].title + '</div>' + imgNum + '<a href="#close" onclick="shutterReloaded.hideShutter();return false;" id="shX" title="'+t.msgClose+'">X</a></div>';
-
-		D.innerHTML = '<div id="shWrap"><img src="" id="shTopImg" onload="shutterReloaded.showImg();" />' + NavBar +'</div>';
-		
+		if(ln==23 || ln==26) {
+			shutterReloaded.loading()
+			D.innerHTML = '<div id="shWrap"><iframe width="644" height="436" frameborder="0" src="http://www.progo.com/direct/'+(ln==23 ? 'custom-themes/' : 'contact')+'/" id="shFrame"></iframe>' + NavBar +'</div>';
+			shutterReloaded.showFrame();
+		} else {
+			D.innerHTML = '<div id="shWrap"><img src="" id="shTopImg" onload="shutterReloaded.showImg();" />' + NavBar +'</div>';
+		}
 		//Google Chrome 4.0.249.78 bug for onload attribute
 		document.getElementById('shTopImg').src = shutterLinks[ln].link;
 		
@@ -225,6 +222,47 @@ shutterReloaded = {
 			}
 			T.style.width = (TI.width - 4) + 'px';
 		}
+
+		maxHeight = t.Top + TI.height + 10;
+		if ( maxHeight > t.pgHeight ) S.style.height = maxHeight + 'px';
+		window.scrollTo(0,t.Top);
+
+		itop = (shHeight - TI.height) * 0.45;
+		mtop = (itop > 3) ? Math.floor(itop) : 3;
+		D.style.top = t.Top + mtop + 'px';
+		W.style.visibility = 'visible';
+	},
+
+	showFrame : function() {
+		var t = this, S = t.I('shShutter'), D = t.I('shDisplay'), TI = t.I('shFrame'), T = t.I('shTitle'), NB = t.I('shNavBar'), W, WB, wHeight, wWidth, shHeight, maxHeight, itop, mtop, resized = 0;
+
+		if ( ! S ) return;
+		if ( (W = t.I('shWrap')) && W.style.visibility == 'visible' ) return;
+		if ( WB = t.I('shWaitBar') ) WB.parentNode.removeChild(WB);
+
+		S.style.width = D.style.width = '';
+		T.style.width = (TI.width - 4) + 'px';
+
+		shHeight = t.wHeight - 50;
+
+		//if ( t.FS ) {
+			if ( TI.width > (t.wWidth - 10) )
+			S.style.width = D.style.width = TI.width + 10 + 'px';
+			document.documentElement.style.overflowX = '';
+		/*} else {
+			window.scrollTo(0,t.Top);
+			if ( TI.height > shHeight ) {
+				TI.width = TI.width * (shHeight / TI.height);
+				TI.height = shHeight;
+				resized = 1;
+			}
+			if ( TI.width > (t.wWidth - 16) ) {
+				TI.height = TI.height * ((t.wWidth - 16) / TI.width);
+				TI.width = t.wWidth - 16;
+				resized = 1;
+			}
+			T.style.width = (TI.width - 4) + 'px';
+		}*/
 
 		maxHeight = t.Top + TI.height + 10;
 		if ( maxHeight > t.pgHeight ) S.style.height = maxHeight + 'px';
