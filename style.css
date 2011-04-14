@@ -54,7 +54,7 @@ body.wpsc-transaction-details .container_12 .grid_8.entry { width: 868px; }
 .block.test .inside br { display: none; }
 .block.test .inside .by { font-style: normal; font-size: 11px; display: block; margin-top: 20px }
 .block.share { background: url(images/blockb.png) no-repeat 0 100%; }
-.block.share .inside { background: none; }
+.block.share .inside { background: none; padding-bottom: 19px }
 
 img.fw { margin: 19px 0 0 7px; }
 #main h2 { font-weight: 400; font-size: 34px; line-height: 38px; margin: 37px 0 5px }
