@@ -10,9 +10,6 @@ function progodirect_setup() {
 	add_action( 'progo_direct_after_arrow', 'progodirect_contenttop', 20 );
 	add_action( 'progo_pre_gateways', 'progodirect_gatewaycleanup' );
 	
-	remove_action('wp_head', 'st_widget_head');
-	add_action('wp_head', 'progo_st_widget_head');
-	
 	add_filter( 'progo_display_easysecure', 'progodirect_easyoverride', 10, 3);
 	add_filter( 'progo_checkout_btn', 'progodirect_checkoutbtn' );
 	add_filter( 'wp_mail', 'progodirect_mail' );
@@ -224,19 +221,3 @@ function progodirect_mail( $msg ) {
 	}
 	return $msg;
 }
-
-if(!function_exists('progo_st_widget_head')) :
-function progo_st_widget_head() {
-	$widget = get_option('st_widget');
-	if ($widget != '') {
-		$widget = preg_replace(
-			"/\<script\s([^\>]*)src\=\"http\:\/\/sharethis/"
-			, "<script $1src=\"https://ws.sharethis"
-			, $widget
-		);
-		$widget = preg_replace("/\&/", "&amp;", $widget);
-		$widget = str_replace('http://w.sharethis.com/button/buttons.js', 'https://ws.sharethis.com/button/buttons.js', $widget);
-	}
-	print($widget);
-}
-endif;
