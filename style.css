@@ -18,7 +18,7 @@ a { color: #DE7916; }
 #toparr { background: url(images/form.jpg) no-repeat 100% 0; text-align: left; text-indent: -999em; }
 #container { background: #e3e3e3 url(images/page.png) repeat-y 0 0; }
 #container.direct { background-color: #fff; }
-#topimg { border-top: 1px solid #e7e7e7; margin-left: -10px; width: 699px; height: 420px; }
+#topimg { border-top: 1px solid #e7e7e7; width: 699px; height: 420px; }
 #arrow span { font-weight: 400; letter-spacing:0.03em }
 .ngg-slideshow.lapcolors { position: absolute; top: 108px; left: 145px; z-index: 2; }
 #directprice { display: block; width: 183px; height: 177px; position: absolute; top: 138px; left: 21px; z-index: 3; background: url(images/directprice.png) no-repeat 0 0; }
