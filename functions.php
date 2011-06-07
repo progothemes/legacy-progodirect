@@ -3,6 +3,7 @@
 add_action( 'after_setup_theme', 'progodirect_setup', 20 );
 function progodirect_setup() {
 	add_image_size( 'fullw', 925, 400, true );
+	add_image_size( 'pbg', 724, 436, true );
 	
 	add_action( 'init', 'progodirect_init' );
 	add_action( 'progo_frontend_scripts', 'progodirect_scripts', 20 );
