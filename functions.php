@@ -170,7 +170,7 @@ function progodirect_mail( $msg ) {
 		$file_data = wpsc_get_downloadable_files($download_data['product_id']);		
 		
 		$themefile = $file_data[0]->post_title;
-		$theme = substr($themefile,0,strlen($themefile)-4);
+		$themeslug = substr($themefile,0,strlen($themefile)-4);
 		
 		$currtime = date('Y-m-d H:i:s');
 		$new_key = md5(crypt($msg['to'] ." : $currtime : $theme"));
